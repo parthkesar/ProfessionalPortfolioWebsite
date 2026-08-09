@@ -1,0 +1,79 @@
+:root{
+
+    --gradient: linear-gradient(to right, skyblue, #00c6ff, #0072ff, blue, blue);
+    --navcolor: white;
+    --gradient-hover: linear-gradient(to right, skyblue, #00c6ff,#00c6ff, #00c6ff, #0072ff, blue);
+    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 1.5cm;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    color: var(--navcolor);
+
+    box-sizing: border-box;
+
+    font-weight: bold;
+}
+
+#nav-links{
+    list-style: none;
+    display: flex;
+    width: 20vw;
+    height: 100%;
+    
+    align-items: center;
+}
+
+.nav-items{
+    width: calc(100% / 4);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-items:hover{
+    background-color: rgba(0, 0, 0, 0.541);
+    
+    cursor: pointer;
+
+
+    background-image: var(--gradient-hover);
+  
+  /* 2. Clip the background to the text glyphs */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* 3. Make the text transparent to reveal the background */
+  color: transparent;
+  
+  /* Optional: Ensures block level elements only fit the text width */
+  
+}
+
+#linebreak{
+    height: 60px;
+    width: 100vw;
+    background: var(--gradient);
+}
+
+body{
+    height: 100vh;
+    background-image: radial-gradient( rgba(0, 0, 0, 0.918) 30%, black 70%);
+    /*change the height of the body */
+    
+}
