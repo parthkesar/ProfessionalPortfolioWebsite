@@ -1,5 +1,77 @@
 #skill-stack{
-   height: 100vh;
+ 
    width: 100%;
+   position: relative;
    border: 1px solid red;
+}
+
+
+
+#skill-stack-heading{
+    text-align: center;
+    -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(to right, skyblue, #00c6ff,#00c6ff, #00c6ff, #0072ff, blue, blue, blue);
+  color: transparent;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+#skill-stack{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.cardoutline{
+   background-image: linear-gradient(to right bottom, skyblue, #00c6ff,#00c6ff, #00c6ff, #0072ff, blue);
+
+   height: 100%;
+   box-sizing: border-box;
+   padding: 5px;
+   transition: all 0.25s ease-in-out;
+}
+
+.cardoutline:hover{
+   transform: translateY(-10px);
+
+}
+
+.skillstackcards{
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   gap: 1rem;
+   width: 100%;
+   margin: 50px 0px;
+
+}
+
+.card{
+   background-color: black;
+   height: 10cm;
+   width: 7cm;
+   color: white;
+   padding: 1rem;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 1rem;
+}
+
+.card-images{
+   height: 3cm;
+   width: 3cm;
+   object-fit: cover;
+   border-radius: 50%;
+   object-position: center;
+}
+
+progress{
+ 
+  color: linear-gradient(to right, skyblue, #00c6ff,#00c6ff, #00c6ff, #0072ff, blue, blue, blue);
+
 }
