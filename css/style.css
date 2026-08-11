@@ -1,9 +1,8 @@
 :root{
-
     --gradient: linear-gradient(to right, skyblue, #00c6ff, #0072ff, blue, blue);
     --navcolor: white;
     --gradient-hover: linear-gradient(to right, skyblue, #00c6ff,#00c6ff, #00c6ff, #0072ff, blue);
-    
+    --nav-height: 1.5cm;
 }
 
 *,
@@ -31,34 +30,38 @@ nav{
     top: 0;
     left: 0;
     width: 100%;
-    height: 1.5cm;
+    min-height: var(--nav-height);
+    height: auto;
     background-color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 20px;
+    padding: 0.7rem 1rem;
     color: var(--navcolor);
-
     box-sizing: border-box;
-
     font-weight: bold;
+    gap: 1rem;
 }
 
 #nav-links{
     list-style: none;
     display: flex;
-    width: 20vw;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    width: auto;
     height: 100%;
-    
     align-items: center;
 }
 
 .nav-items{
-    width: calc(100% / 4);
+    min-width: 5rem;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0.35rem 0.6rem;
+    border-radius: 0.3rem;
 }
 
 .nav-items:hover{
@@ -82,7 +85,7 @@ nav{
 
 #linebreak{
     position: fixed;
-    top: 1.5cm;
+    top: var(--nav-height);
     left: 0;
     width: 100%;
     height: 5px;
@@ -92,40 +95,42 @@ nav{
 
 body{
     min-height: 100vh;
-    padding-top: calc(1.5cm + 5px);
+    padding-top: calc(var(--nav-height) + 5px);
     background-image: radial-gradient( rgba(0, 0, 0, 0.918) 30%, black 70%);
-    /*change the height of the body */
-    
 }
 
 #aboutme{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 0;
+    padding: 2rem 0;
 }
 
 #aboutme > div{
-    width: 80%;
-    height: 80%;
+    width: min(90%, 1200px);
+    min-height: 80vh;
     background-color: rgba(0, 0, 0, 0.918);
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-
+    gap: 1rem;
+    padding: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .aboutme-child{
     border: 1px solid white;
-    height: 100%;
-    width: 50%;
+    min-height: 100%;
+    width: calc(50% - 0.5rem);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 1rem;
 }
 
 #typewriter-effect {
@@ -153,8 +158,38 @@ body{
 
 .myvision{
     font-size: larger;
-    text-align:justify;
-    
+    text-align: justify;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    #aboutme > div {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .aboutme-child {
+        width: 100%;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        justify-content: center;
+    }
+
+    #nav-links {
+        justify-content: center;
+    }
+
+    #typewriter-effect {
+        font-size: 1.6rem;
+    }
+
+    .myvision {
+        font-size: 1rem;
+    }
 }
 
 @keyframes blink {
