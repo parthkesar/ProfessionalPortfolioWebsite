@@ -112,7 +112,7 @@ body{
 #aboutme > div{
     width: min(90%, 1200px);
     min-height: 80vh;
-    background-color: rgba(0, 0, 0, 0.918);
+    /* background-color: rgba(0, 0, 0, 0.918); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,7 +123,7 @@ body{
 }
 
 .aboutme-child{
-    border: 1px solid white;
+    /* border: 1px solid white; */
     min-height: 100%;
     width: calc(50% - 0.5rem);
     display: flex;
@@ -203,7 +203,11 @@ body{
      text-align: center;
     -webkit-background-clip: text;
   background-clip: text;
-  background-image: linear-gradient(to right, skyblue, #00c6ff,#00c6ff, #00c6ff, #0072ff, blue);
+  background-image: linear-gradient(to right, skyblue, #00c6ff);
   color: transparent;
   font-weight: bold;
+}
+
+main > div{
+    margin: 100px 0px;
 }
