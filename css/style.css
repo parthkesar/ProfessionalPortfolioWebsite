@@ -134,6 +134,8 @@ body{
 }
 
 #typewriter-effect {
+ text-align: center;
+    height: 3cm;
     display: inline-block;
     color: white;
     font-size: clamp(1.4rem, 2.2vw, 2rem);
@@ -195,4 +197,13 @@ body{
 @keyframes blink {
     0%, 49% { opacity: 1; }
     50%, 100% { opacity: 0; }
+}
+
+#personality{
+     text-align: center;
+    -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(to right, skyblue, #00c6ff,#00c6ff, #00c6ff, #0072ff, blue);
+  color: transparent;
+  font-weight: bold;
 }
