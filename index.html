@@ -212,7 +212,7 @@
         <h2 id="project-heading">Projects</h2>
         <div class="project-outline">
           <div class="project-bar">
-            <img src="img/rogueproject.jpg" alt="img" class="project-image" />
+            <img src="img/rogueprojectwithout taskbar.jpg" alt="img" class="project-image" />
             <p>
               This Flask application is a web app for the brand Rogue Energy.
               It serves a main landing page and provides backend APIs for
@@ -224,18 +224,60 @@
               </svg>
             </div>
           </div>
-          <div class="project-details">
+          <div class="project-details" style="overflow-y: scroll;">
             <h3>Rogue Energy Flask App</h3>
             <p>
-              A small Flask web app built for Rogue Energy with a landing page,
-              contact form, and backend APIs to support future e-commerce
-              features.
+              This Flask application is a small web app for the brand Rogue
+              Energy. It serves a main landing page and provides backend APIs
+              for contact submission and future shopping cart/checkout support.
             </p>
-            <ul>
-              <li>Flask frontend and backend integration</li>
-              <li>Contact submission support with persistence</li>
-              <li>Planned cart and checkout endpoints for future expansion</li>
-            </ul>
+
+            <div class="project-section">
+              <h4>Project Description</h4>
+              <ul>
+                <li>Renders a homepage using Flask templates.</li>
+                <li>Supports contact form submission via HTML and AJAX.</li>
+                <li>Provides API endpoints for cart retrieval, addition, and checkout.</li>
+              </ul>
+            </div>
+
+            <div class="project-section">
+              <h4>Data and Persistence</h4>
+              <p>
+                Uses a MySQL database for persistent storage and reads
+                connection settings from environment variables.
+              </p>
+              <ul>
+                <li>DB_HOST</li>
+                <li>DB_USER</li>
+                <li>DB_PASSWORD</li>
+                <li>DB_NAME</li>
+              </ul>
+            </div>
+
+            <div class="project-section">
+              <h4>Project Structure</h4>
+              <ul>
+                <li><strong>app.py</strong> — Flask application and route logic</li>
+                <li><strong>template/index.html</strong> — main HTML template</li>
+                <li><strong>static/css/style.css</strong> — styling</li>
+                <li><strong>static/js/script.js</strong> — client-side scripts</li>
+                <li><strong>static/img/</strong> — image assets</li>
+              </ul>
+            </div>
+
+            <div class="project-section">
+              <h4>Technologies Used</h4>
+              <ul>
+                <li>Python</li>
+                <li>Flask</li>
+                <li>MySQL</li>
+                <li>HTML / CSS / JavaScript</li>
+              </ul>
+            </div>
+
+            <img src="img/rogueproject.jpg" alt="" style="width: 100%;">
+            
           </div>
         </div>
       </div>
