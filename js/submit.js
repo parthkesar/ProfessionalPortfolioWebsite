@@ -24,8 +24,19 @@ form.addEventListener("submit", async (event) => {
         const result = await response.json();
 
         if (result.success) {
-            alert("I recieved your message and I will connect you soon.\nThank You");
-            form.reset();
+            // Show thank you message and hide form
+            const thankYouDiv = document.getElementById("thankyoumessage");
+            const formInputs = form.querySelectorAll("label, input, textarea, button");
+            
+            thankYouDiv.style.display = "flex";
+            formInputs.forEach(input => input.style.display = "none");
+            
+            // Reset form after a delay
+            setTimeout(() => {
+                form.reset();
+                thankYouDiv.style.display = "none";
+                formInputs.forEach(input => input.style.display = "");
+            }, 5000);
         } else {
             alert(result.message);
         }
