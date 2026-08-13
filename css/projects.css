@@ -170,6 +170,7 @@
     background: rgba(0,198,255,0.15);
     border-color: rgba(0,198,255,0.7);
     transform: translateY(-2px);
+    color: rgba(0,198,255,0.7);
 }
 
 .social-link svg{
@@ -246,7 +247,11 @@
     left: 0px;
     height: 100%;
     width: 100%;
-    z-index: 2;
+    z-index: 0.1;
     background-image: linear-gradient(to right bottom, skyblue, #00c6ff,#00c6ff, #00c6ff, #0072ff, blue);
+    border-radius: inherit;
     display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
