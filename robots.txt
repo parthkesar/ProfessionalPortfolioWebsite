@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /js/
+Disallow: /css/
+
+# Sitemap
+Sitemap: https://parthkesar.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

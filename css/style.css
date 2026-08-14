@@ -13,6 +13,10 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html,
 body {
     overflow-x: hidden;
@@ -41,7 +45,11 @@ nav{
     box-sizing: border-box;
     font-weight: bold;
     gap: 1rem;
-    flex-wrap: wrap;
+}
+
+#name {
+    order: 1;
+    flex-shrink: 0;
 }
 
 #nav-links{
@@ -54,6 +62,7 @@ nav{
     height: 100%;
     align-items: center;
     position: relative;
+    order: 2;
 }
 
 .nav-items{
@@ -66,6 +75,101 @@ nav{
     border-radius: 0.3rem;
     font-size: clamp(0.8rem, 1vw, 1rem);
     white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.nav-items:focus {
+    outline: 2px solid #00c6ff;
+    outline-offset: 2px;
+}
+
+.nav-items:focus-visible {
+    outline: 2px solid #00c6ff;
+    outline-offset: 2px;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 0.4rem;
+    z-index: 100;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--navcolor);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    will-change: transform;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media (max-width: 600px) {
+    nav {
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    #name {
+        flex: 1;
+        order: 1;
+    }
+
+    .menu-toggle {
+        display: flex;
+        order: 2;
+        margin-left: auto;
+    }
+
+    #nav-links {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        order: 3;
+    }
+
+    #nav-links.active {
+        max-height: 400px;
+    }
+
+    .nav-items {
+        width: 100%;
+        height: auto;
+        padding: 0.8rem;
+        min-width: auto;
+        border-radius: 0;
+    }
+
+    #highlight {
+        display: none !important;
+    }
 }
 
 .nav-items:hover{
@@ -137,6 +241,12 @@ body{
     padding: 1rem;
 }
 
+.aboutme-child img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 #typewriter-effect {
  text-align: center;
     height: 3cm;
@@ -189,14 +299,22 @@ body{
 @media (max-width: 768px) {
     nav {
         padding: 0.5rem;
+        justify-content: space-between;
     }
 
     #name {
         font-size: clamp(1rem, 2.5vw, 1.5rem);
+        order: 1;
     }
 
     #nav-links {
         gap: 0.2rem;
+        order: 3;
+    }
+
+    .menu-toggle {
+        order: 2;
+        margin-left: auto;
     }
 
     .nav-items {
@@ -261,10 +379,23 @@ body{
 @media (max-width: 480px) {
     nav {
         padding: 0.4rem;
+        justify-content: space-between;
+        flex-wrap: nowrap;
     }
 
     #name {
         font-size: 0.9rem;
+        flex: 1;
+        order: 1;
+    }
+
+    .menu-toggle {
+        order: 2;
+        margin-left: auto;
+    }
+
+    #nav-links {
+        order: 3;
     }
 
     .nav-items {
@@ -342,4 +473,38 @@ main > div{
     width: calc(100% / 4);
     height: 5px;
     border-radius: 55px;
+}
+
+/* Print styles */
+@media print {
+    header, nav, #linebreak {
+        display: none;
+    }
+
+    body {
+        padding-top: 0;
+    }
+
+    main {
+        padding: 0;
+    }
+
+    .social-link {
+        display: none;
+    }
+
+    a {
+        color: #0072ff;
+        text-decoration: underline;
+    }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

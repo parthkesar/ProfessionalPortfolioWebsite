@@ -75,6 +75,8 @@
    object-fit: cover;
    border-radius: 50%;
    object-position: center;
+   display: block;
+   flex-shrink: 0;
 }
 
 progress{

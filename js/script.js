@@ -106,6 +106,45 @@ const words = ["Full-Stack Developer", "Software Developer", "Mobile App Develop
             
             // Update highlight position
             updateHighlight(item);
+            
+            // Close mobile menu after clicking
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            if (navLinks.classList.contains('active')) {
+              navLinks.classList.remove('active');
+              menuToggle.classList.remove('active');
+              menuToggle.setAttribute('aria-expanded', 'false');
+            }
           }
         });
+      });
+
+      // Mobile hamburger menu toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+        const isExpanded = navLinks.classList.contains('active');
+        menuToggle.setAttribute('aria-expanded', isExpanded);
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('nav')) {
+          navLinks.classList.remove('active');
+          menuToggle.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Error handling for global script errors
+      window.addEventListener('error', (e) => {
+        console.error('Script error:', e.error);
+      });
+
+      // Handle promise rejections
+      window.addEventListener('unhandledrejection', (e) => {
+        console.error('Unhandled promise rejection:', e.reason);
       });
