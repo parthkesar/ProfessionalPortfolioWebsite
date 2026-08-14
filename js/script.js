@@ -69,3 +69,43 @@ const words = ["Full-Stack Developer", "Software Developer", "Mobile App Develop
           }
         });
       });
+
+      // Navigation smooth scroll and highlight functionality
+      const navItems = document.querySelectorAll('.nav-items');
+      const highlight = document.getElementById('highlight');
+      
+      const sectionMap = {
+        'About Me': 'aboutme',
+        'Skills': 'skill-stack',
+        'Projects': 'projects-section',
+        'Contact Me': 'contact-section'
+      };
+
+      function updateHighlight(element) {
+        const navLinks = document.getElementById('nav-links');
+        const navItemsArray = Array.from(navItems);
+        const index = navItemsArray.indexOf(element);
+        
+        if (index >= 0) {
+          const itemWidth = element.offsetWidth;
+          const itemLeft = element.offsetLeft;
+          
+          highlight.style.width = itemWidth + 'px';
+          highlight.style.left = itemLeft + 'px';
+        }
+      }
+
+      navItems.forEach((item) => {
+        item.addEventListener('click', () => {
+          const sectionId = sectionMap[item.textContent.trim()];
+          const section = document.getElementById(sectionId);
+          
+          if (section) {
+            // Smooth scroll to section
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Update highlight position
+            updateHighlight(item);
+          }
+        });
+      });
