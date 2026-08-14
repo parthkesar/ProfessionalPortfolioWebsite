@@ -40,3 +40,32 @@ const words = ["Full-Stack Developer", "Software Developer", "Mobile App Develop
           arrow.classList.toggle('active', opened);
         });
       });
+
+      // Project description toggle functionality
+      const projectBars = document.querySelectorAll('.project-bar');
+      projectBars.forEach((bar) => {
+        bar.addEventListener('click', () => {
+          const projectContainer = bar.parentElement;
+          const description = projectContainer.querySelector('.project-description');
+          const svg = bar.querySelector('svg');
+          
+          if (!description) return;
+
+          const isOpen = description.style.maxHeight && description.style.maxHeight !== '0px';
+          
+          if (isOpen) {
+            // Close the description
+            description.style.maxHeight = '0px';
+            svg.style.transform = 'rotate(0deg)';
+          } else {
+            // Open the description
+            description.style.maxHeight = description.scrollHeight + 'px';
+            svg.style.transform = 'rotate(180deg)';
+          }
+
+          // Add smooth transition for svg rotation
+          if (!svg.style.transition) {
+            svg.style.transition = 'transform 0.3s ease-out';
+          }
+        });
+      });

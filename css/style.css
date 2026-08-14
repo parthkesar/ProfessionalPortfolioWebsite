@@ -52,6 +52,7 @@ nav{
     width: auto;
     height: 100%;
     align-items: center;
+    position: relative;
 }
 
 .nav-items{
@@ -210,4 +211,16 @@ body{
 
 main > div{
     margin: 100px 0px;
+}
+
+#higlight{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+
+    background-image: linear-gradient(to right, skyblue, #00c6ff, #00c6ff, #0072ff, blue);
+
+    width: calc(100% / 4);
+    height: 5px;
+    border-radius: 55px;
 }

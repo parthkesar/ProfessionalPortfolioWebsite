@@ -270,3 +270,13 @@
     align-items: center;
     flex-direction: column;
 }
+
+#projects-heading{
+    text-align: center;
+    -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(to right, skyblue, #00c6ff,#00c6ff, #00c6ff, #0072ff, blue);
+  color: transparent;
+  font-weight: bold;
+  font-size: 3rem;
+}
