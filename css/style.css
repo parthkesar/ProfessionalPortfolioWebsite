@@ -41,6 +41,7 @@ nav{
     box-sizing: border-box;
     font-weight: bold;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 #nav-links{
@@ -56,13 +57,15 @@ nav{
 }
 
 .nav-items{
-    min-width: 5rem;
+    min-width: 4.5rem;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0.35rem 0.6rem;
     border-radius: 0.3rem;
+    font-size: clamp(0.8rem, 1vw, 1rem);
+    white-space: nowrap;
 }
 
 .nav-items:hover{
@@ -175,23 +178,121 @@ body{
         width: 100%;
         min-height: auto;
     }
+
+    #skill-stack-heading,
+    #projects-heading,
+    #contact-section h2 {
+        font-size: clamp(2rem, 5vw, 3rem);
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 0.5rem;
+    }
+
+    #name {
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
+    }
+
+    #nav-links {
+        gap: 0.2rem;
+    }
+
+    .nav-items {
+        padding: 0.3rem 0.4rem;
+        min-width: 4rem;
+    }
+
+    #aboutme > div {
+        gap: 0.5rem;
+        padding: 1rem 0.5rem;
+    }
+
+    .myvision {
+        font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+        text-align: left;
+    }
 }
 
 @media (max-width: 600px) {
     nav {
         justify-content: center;
+        padding: 0.5rem 0.5rem;
+    }
+
+    #name {
+        font-size: 1rem;
+        order: 2;
+        width: 100%;
+        text-align: center;
     }
 
     #nav-links {
         justify-content: center;
+        order: 3;
+        width: 100%;
     }
 
     #typewriter-effect {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
+        height: auto;
     }
 
     .myvision {
-        font-size: 1rem;
+        font-size: 0.95rem;
+    }
+
+    #personality {
+        font-size: 1.2rem;
+    }
+
+    .nav-items {
+        padding: 0.3rem 0.35rem;
+        min-width: 3.5rem;
+        font-size: 0.75rem;
+    }
+
+    #highlight {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 0.4rem;
+    }
+
+    #name {
+        font-size: 0.9rem;
+    }
+
+    .nav-items {
+        padding: 0.25rem 0.3rem;
+        min-width: 3rem;
+        font-size: 0.7rem;
+    }
+
+    #typewriter-effect {
+        font-size: 1.1rem;
+        font-size: 3rem;
+    }
+
+    #typewriter-effect::after {
+        font-size: 2.5rem;
+    }
+
+    .myvision {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    body {
+        padding-top: calc(var(--nav-height) + 3px);
+    }
+
+    #aboutme {
+        padding: 1rem 0;
     }
 }
 
@@ -211,6 +312,24 @@ body{
 
 main > div{
     margin: 100px 0px;
+}
+
+@media (max-width: 768px) {
+    main > div {
+        margin: 60px 0px;
+    }
+}
+
+@media (max-width: 600px) {
+    main > div {
+        margin: 40px 0px;
+    }
+}
+
+@media (max-width: 480px) {
+    main > div {
+        margin: 20px 0px;
+    }
 }
 
 #highlight{

@@ -2,17 +2,53 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    align-items: center;
+    min-height: 80vh;
+    padding: 2rem 0;
 }
 
-#project-heading{
+/* Project Container Responsiveness */
+#projects-section > div:not(#projects-heading) {
+    width: min(90%, 85%);
+    margin: 15px auto;
+}
+
+@media (max-width: 768px) {
+    #projects-section > div:not(#projects-heading) {
+        width: min(90%, 90%);
+        margin: 12px auto;
+    }
+}
+
+@media (max-width: 600px) {
+    #projects-section > div:not(#projects-heading) {
+        width: 95%;
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    #projects-section {
+        padding: 1rem 0;
+    }
+
+    #projects-section > div:not(#projects-heading) {
+        width: 96%;
+        margin: 8px auto;
+        padding: 3px !important;
+    }
+}
+
+#projects-heading{
     text-align: center;
     -webkit-background-clip: text;
   background-clip: text;
-  background-image: linear-gradient(to right, skyblue, #00c6ff,#00c6ff, #00c6ff, #0072ff, blue, blue, blue);
+  background-image: linear-gradient(to right, skyblue, #00c6ff,#00c6ff, #00c6ff, #0072ff, blue);
   color: transparent;
   font-weight: bold;
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  width: 100%;
+  margin-bottom: 1.5rem;
 }
 
 .project-outline{
@@ -32,6 +68,125 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem;
+    min-height: 3cm;
+}
+
+.project-bar img {
+    width: 10%;
+    min-width: 2cm;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-bar h3 {
+    flex: 1;
+    color: white;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    margin: 0;
+}
+
+.project-bar .dropdown {
+    width: 10%;
+    min-width: 2cm;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+.project-description {
+    color: white;
+    background-color: black;
+    overflow: hidden;
+    padding: 0 1rem;
+}
+
+.project-description p {
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    line-height: 1.6;
+    margin: 10px 0;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .project-bar {
+        padding: 0.8rem;
+        gap: 0.8rem;
+    }
+
+    .project-bar h3 {
+        font-size: 1rem;
+    }
+
+    .project-bar img {
+        min-width: 1.8cm;
+    }
+
+    .project-description p {
+        font-size: 0.9rem;
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-bar {
+        padding: 0.6rem;
+        gap: 0.6rem;
+        min-height: 2.5cm;
+    }
+
+    .project-bar h3 {
+        font-size: 0.9rem;
+    }
+
+    .project-bar img {
+        min-width: 1.5cm;
+    }
+
+    .project-bar .dropdown {
+        min-width: 1.5cm;
+    }
+
+    .project-description {
+        padding: 0 0.8rem;
+    }
+
+    .project-description p {
+        font-size: 0.8rem;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-bar {
+        padding: 0.5rem;
+        gap: 0.4rem;
+        min-height: 2.2cm;
+    }
+
+    .project-bar h3 {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .project-bar img {
+        min-width: 1.2cm;
+        display: none;
+    }
+
+    .project-bar .dropdown {
+        min-width: 1.2cm;
+    }
+
+    .project-description {
+        padding: 0 0.5rem;
+    }
+
+    .project-description p {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
 }
 
 .project-bar> * {
@@ -249,9 +404,180 @@
     }
 }
 
+@media (max-width: 768px) {
+    #contact-section {
+        width: 95%;
+        padding: 1.5rem;
+        margin: 30px auto 40px;
+    }
+
+    #contact-section h2 {
+        font-size: clamp(2rem, 4vw, 2.5rem);
+        margin-bottom: 1.2rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+        min-height: auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.7rem 0.8rem;
+        font-size: 1rem;
+    }
+
+    .contact-form button {
+        padding: 0.8rem 1.2rem;
+        font-size: 1rem;
+    }
+
+    .contact-info h3 {
+        font-size: 1.6rem;
+    }
+
+    .contact-info p {
+        font-size: 0.95rem;
+    }
+
+    .social-link {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .social-link svg {
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
 @media (max-width: 600px) {
     #contact-section{
-        padding: 1.5rem;
+        padding: 1.2rem;
+        width: 90%;
+        margin: 20px auto 40px;
+    }
+
+    #contact-section h2 {
+        font-size: clamp(1.5rem, 3.5vw, 2rem);
+    }
+
+    .contact-grid {
+        gap: 1.5rem;
+    }
+
+    .contact-form {
+        border: 1px solid #00c6ff;
+        padding: 1rem;
+    }
+
+    .contact-form label {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.6rem 0.7rem;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
+
+    .contact-form button {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
+
+    .contact-info h3 {
+        font-size: 1.3rem;
+        margin-top: 0.5rem;
+    }
+
+    .contact-info p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 0.8rem;
+    }
+
+    .contact-info li {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .social-links {
+        gap: 0.6rem;
+        margin-top: 1rem;
+        justify-content: flex-start;
+    }
+
+    .social-link {
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+
+    .social-link svg {
+        width: 0.9rem;
+        height: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #contact-section {
+        padding: 1rem;
+        width: 95%;
+        margin: 15px auto 30px;
+    }
+
+    #contact-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .contact-form {
+        padding: 0.8rem;
+        border: 1px solid #00c6ff;
+    }
+
+    .contact-form label {
+        font-size: 0.85rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .contact-form button {
+        padding: 0.6rem 0.9rem;
+        font-size: 0.85rem;
+    }
+
+    .contact-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .contact-info p {
+        font-size: 0.8rem;
+    }
+
+    .contact-info li {
+        font-size: 0.8rem;
+    }
+
+    .social-links {
+        gap: 0.4rem;
+    }
+
+    .social-link {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .social-link svg {
+        width: 0.8rem;
+        height: 0.8rem;
     }
 }
 

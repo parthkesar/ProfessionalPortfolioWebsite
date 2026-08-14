@@ -14,7 +14,8 @@
   background-image: linear-gradient(to right, skyblue, #00c6ff,#00c6ff, #00c6ff);
   color: transparent;
   font-weight: bold;
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1.5rem;
 }
 
 #skill-stack{
@@ -81,12 +82,74 @@ progress{
   color: linear-gradient(to right, skyblue, #00c6ff,#00c6ff, #00c6ff, #0072ff, blue, blue, blue);
 }
 
+@media (max-width: 768px) {
+  .cardoutline {
+    width: min(95%, 6.5cm);
+  }
+
+  .card {
+    min-height: 9.5cm;
+  }
+
+  .skillstackcards {
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+  }
+}
+
 @media (max-width: 600px) {
   #skill-stack-heading {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
   }
 
   .card {
     min-height: 8.5cm;
+    padding: 0.8rem;
+  }
+
+  .card-images {
+    height: 2.5cm;
+    width: 2.5cm;
+  }
+
+  .skillstackcards {
+    gap: 0.8rem;
+    margin: 1rem 0;
+  }
+
+  .cardoutline {
+    width: min(90%, 6cm);
+    padding: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    min-height: 7.5cm;
+    padding: 0.6rem;
+    gap: 0.6rem;
+  }
+
+  .card h4 {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .card-images {
+    height: 2cm;
+    width: 2cm;
+  }
+
+  .skillstackcards {
+    gap: 0.6rem;
+    margin: 0.8rem 0;
+  }
+
+  #skill-stack {
+    padding: 0 0.5rem;
+  }
+
+  progress {
+    height: 0.3rem;
   }
 }
