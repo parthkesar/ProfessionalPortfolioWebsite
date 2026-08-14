@@ -150,13 +150,19 @@ nav{
         gap: 0.5rem;
         padding: 1rem 0;
         max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
         overflow: hidden;
-        transition: max-height 0.3s ease-out;
+        transition: max-height 0.3s ease-out, opacity 0.2s ease, visibility 0.2s ease;
         order: 3;
     }
 
     #nav-links.active {
         max-height: 400px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
     }
 
     .nav-items {
@@ -335,21 +341,42 @@ body{
 
 @media (max-width: 600px) {
     nav {
-        justify-content: center;
+        justify-content: space-between;
         padding: 0.5rem 0.5rem;
+        flex-wrap: nowrap;
     }
 
     #name {
         font-size: 1rem;
+        order: 1;
+        flex: 1;
+    }
+
+    .menu-toggle {
+        display: flex;
         order: 2;
-        width: 100%;
-        text-align: center;
+        margin-left: auto;
     }
 
     #nav-links {
-        justify-content: center;
-        order: 3;
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
         width: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        order: 3;
+    }
+
+    #nav-links.active {
+        max-height: 500px;
     }
 
     #typewriter-effect {
@@ -395,7 +422,24 @@ body{
     }
 
     #nav-links {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
         order: 3;
+    }
+
+    #nav-links.active {
+        max-height: 500px;
     }
 
     .nav-items {
