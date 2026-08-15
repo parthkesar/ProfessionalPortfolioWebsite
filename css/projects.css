@@ -625,3 +625,15 @@
   font-weight: bold;
   font-size: 3rem;
 }
+
+.project-description> h2{
+    text-align: center;
+    margin-top: 4cm;
+    
+}
+
+.project-description> h3{
+    text-align: center;
+    margin-top: 2cm;
+    
+}
