@@ -26,6 +26,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Schema.org Structured Data for SEO -->
+     <script src="js/load.js"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org/",
@@ -47,7 +48,61 @@
       ]
     }
     </script>
-  </head>
+  
+<style>
+/* Scroll-triggered reveal animations */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-from-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-from-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-from-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-from-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Prevent reveal transforms from creating horizontal scrolling */
+html, body {
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll,
+  .reveal-from-left,
+  .reveal-from-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+</style>
+</head>
   <body>  
     
     <header>
@@ -646,7 +701,7 @@
 </div>
 <br><br>
 <img src="img/rogueproject.jpg" alt="" style="width: 100%; height: auto;">
-<br><br><img src="img/lighthouserogue.png" alt="" style="margin-left: 50%; transform: translateX(-50%);">
+<br><br><img src="img/lighthouserogue.png" alt="" style="margin-left: 50%; transform: translateX(-50%); object-fit: contain; width: required;">
 <div style="text-align: center;">Chrome Lighthouse Report</div>            
 </p>
           </div>
@@ -1213,7 +1268,7 @@
   
 <br>
 <br>
-<img src="img/lighthousepersonalportfolio.png" alt="" style="margin-left: 50%; transform: translateX(-50%);">
+<img src="img/lighthousepersonalportfolio.png" alt="" style="margin-left: 50%; transform: translateX(-50%); object-fit: contain;">
 <div style="text-align: center;">Chrome Lighthouse Report</div> 
 </div>
 
@@ -1358,4 +1413,50 @@
   </body>
   <script src="js/script.js"></script>
   <script src="js/submit.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Elements that should animate when they enter the viewport.
+  const revealElements = document.querySelectorAll(`
+    #aboutme,
+    #skill-stack-heading,
+    #skill-stack .skillstackcards,
+    #skill-stack .cardoutline,
+    #projects-heading,
+    #projects-section > div,
+    #contact-section > h2,
+    #contact-section .contact-info,
+    #contact-section .contact-form,
+    #contact-section .social-links,
+    #contact-section .highlight
+  `);
+
+  // Alternate the direction for selected larger sections.
+  document.querySelector("#aboutme")?.classList.add("reveal-from-left");
+  document.querySelector("#contact-section .contact-info")?.classList.add("reveal-from-left");
+  document.querySelector("#contact-section .contact-form")?.classList.add("reveal-from-right");
+
+  // Everything else gets the normal upward fade.
+  revealElements.forEach((element) => {
+    if (!element.classList.contains("reveal-from-left") &&
+        !element.classList.contains("reveal-from-right")) {
+      element.classList.add("reveal-on-scroll");
+    }
+  });
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: "0px 0px -60px 0px"
+  });
+
+  revealElements.forEach((element) => observer.observe(element));
+});
+</script>
+
 </html>
